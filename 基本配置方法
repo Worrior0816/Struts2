@@ -17,6 +17,7 @@
 	<!-- 引入hello.xml文件 -->
 	<!-- <include file="cn/itcast/action/hello.xml"></include> -->
 	
+	
 	<!-- 配置action的方法访问 -->
 	<!-- <package name="methoddemo" extends="struts-default" namespace="/">
 		有method属性：写要执行的action里面的方法的名称  
@@ -35,6 +36,19 @@
 			method属性写*值
 		 -->
 		<action name="book_*" class="cn.itcast.method.BookAction" method="{1}">
+		</action>
+	</package>
+	
+	<package name="demo" extends="struts-default" namespace="/">
+		<action name="customer_*" class="cn.itcast.action.CustomerAction" method="{1}">
+			<result name="list">/jsp/customer/list.jsp</result>
+			<!-- 到添加页面 -->
+			<result name="toAddPage">/jsp/customer/add.jsp</result>
+			<!-- 添加之后操作 到列表页面
+				请求一次列表的action
+				type属性：chain不用缓存问题，一般使用redirectAction重定向到action
+			-->
+			<result name="addCustomer" type="redirectAction">customer_list</result>
 		</action>
 	</package>
 </struts>
