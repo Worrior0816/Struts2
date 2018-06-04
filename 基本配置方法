@@ -6,6 +6,11 @@
 
 	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
 	
+	<!-- 全局结果页面配置 -->
+		<!-- <global-results>
+			<result name="success">/hello.jsp</result>
+		</global-results> -->
+	
 	<!-- <package name="hellodemo" extends="struts-default" namespace="/">
 		name: 访问名称
 		<action name="hello" class="cn.itcast.action.HelloAction">
